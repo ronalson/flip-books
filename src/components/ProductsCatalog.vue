@@ -10,8 +10,8 @@
       <p class="c-product__price">R$ {{product.price}}</p>
       <a class="c-product__details-toggle" 
          @click="toggleDetails"
-         :class="{active: showDetails}"
-         >Ver detalhes</a>
+         ><span v-if="!showDetails">Abrir</span>
+          <span v-else>Fechar</span> detalhes</a>
       <div v-show="showDetails" class="c-product__details">
         <h4>Detalhes</h4>
         <p>{{product.description}}</p>
