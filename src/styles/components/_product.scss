@@ -1,7 +1,7 @@
 .c-product {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: max-content;
+  grid-auto-rows: auto;
   grid-template-areas:
     "cover cover"
     "title title"
@@ -14,12 +14,16 @@
 .c-product__image {
   grid-area: cover;
   justify-self: center;
-  width: 50%;
+  width: 35%;
+  line-height: 0; // removes white border from figure
+  box-shadow: 10px 10px 0 0 $medium-grey;
 }
 
 .c-product__title {
   grid-area: title;
-  color: $main-dark;
+  color: $blue;
+  font-weight: 600;
+  // font-size: 1.6em;
 }
 
 .c-product__author {
@@ -31,6 +35,7 @@
   @extend .o-price-tag;
   grid-area: price;
   justify-self: start;
+  align-self: start;
 }
 
 .c-product__btn--add-to-cart {
