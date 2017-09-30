@@ -8,7 +8,15 @@
       <h2 class="c-product__title">{{product.title}}</h2>
       <p class="c-product__author">{{product.author}}</p>
       <p class="c-product__price">R$ {{product.price}}</p>
-      <button class="c-product__btn--add-to-cart">Comprar</button>
+      <a class="c-product__details-toggle" 
+         @click="toggleDetails"
+         :class="{active: showDetails}"
+         >Ver detalhes</a>
+      <div v-show="showDetails" class="c-product__details">
+        <h4>Detalhes</h4>
+        <p>{{product.description}}</p>
+      </div>
+      <button class="c-product__btn--buy">Comprar</button>
     </section>
   </main>
 </template>
@@ -18,7 +26,7 @@ export default {
   name: 'products-catalog',
   data() {
     return {
-      msg: 'My products',
+      showDetails: false,
       products: [
         {
           id: 0,
@@ -38,6 +46,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    toggleDetails() {
+      this.showDetails = !this.showDetails;
+    },
   },
 };
 </script>

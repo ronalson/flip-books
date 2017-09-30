@@ -6,7 +6,8 @@
     "cover cover"
     "title title"
     "author author"
-    "price price"
+    "price toggle"
+    "details details"
     "button button";
     grid-gap: 15px;
 }
@@ -23,7 +24,6 @@
   grid-area: title;
   color: $blue;
   font-weight: 600;
-  // font-size: 1.6em;
 }
 
 .c-product__author {
@@ -38,7 +38,40 @@
   align-self: start;
 }
 
-.c-product__btn--add-to-cart {
+.c-product__details-toggle {
+  grid-area: toggle;
+  justify-self: center;
+  align-self: center;
+  font-weight: 500;
+  font-size: 1.2em;
+  color: $dark-grey;
+  border-bottom: 3px solid $dark-grey;
+  cursor: pointer;
+}
+
+.c-product__details-toggle.active {
+    color: $green;
+    font-size: 1.3em;
+    border-bottom: 5px solid $green;
+  }
+
+.c-product__details {
+  grid-area: details;
+
+  h4 {
+    color: lighten($main-dark, 30%);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    font-size: 1.1em;
+     color: $main-dark;
+  }
+}
+
+.c-product__btn--buy {
   @extend .o-btn-action--buy;
   grid-area: button;
   align-self: end;
