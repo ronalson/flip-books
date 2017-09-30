@@ -1,0 +1,86 @@
+.c-product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "cover cover"
+    "title title"
+    "author author"
+    "price toggle"
+    "details details"
+    "button button";
+    grid-gap: 15px;
+}
+
+.c-product__image {
+  grid-area: cover;
+  justify-self: center;
+  width: 35%;
+  line-height: 0; // removes white border from figure
+  box-shadow: 10px 10px 0 0 $medium-grey;
+}
+
+.c-product__title {
+  grid-area: title;
+  color: $blue;
+  font-weight: 600;
+}
+
+.c-product__author {
+  grid-area: author;
+  color: lighten($main-dark, 30%);
+}
+
+.c-product__price {
+  @extend .o-price-tag;
+  grid-area: price;
+  justify-self: start;
+  align-self: start;
+}
+
+.c-product__details-toggle {
+  grid-area: toggle;
+  justify-self: center;
+  align-self: center;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: lighten($dark-grey, 30%);
+  border-bottom: 3px solid lighten($dark-grey, 30%);
+  cursor: pointer;
+
+  &:hover {
+    color: $dark-grey;
+    font-weight: 500;
+    border-bottom: 3px solid $dark-grey;
+  }
+}
+
+.c-product__details-toggle.active {
+    color: $green;
+    font-size: 1.3em;
+    border-bottom: 5px solid $green;
+  }
+
+.c-product__details {
+  grid-area: details;
+
+  h4 {
+    color: lighten($main-dark, 30%);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    font-size: 1.1em;
+     color: $main-dark;
+  }
+}
+
+.c-product__btn--buy {
+  @extend .o-btn-action--buy;
+  grid-area: button;
+  align-self: end;
+}
