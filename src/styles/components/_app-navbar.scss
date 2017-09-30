@@ -16,12 +16,14 @@
   font-size: 1.6em;
   line-height: 0.7em;
   text-align: right;
+  cursor: pointer;
 }
 
 .c-navbar__cart-counter {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   
   p {
     margin-right: 1em;
