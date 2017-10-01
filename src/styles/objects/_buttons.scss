@@ -17,6 +17,7 @@
   &--danger {
     color: $red;
     border-bottom: 3px solid $red;
+    text-transform: uppercase;
     &:hover {
       color: darken($red, 10%);
       border-bottom: 3px solid darken($red, 10%);
@@ -26,6 +27,7 @@
   &--primary {
     color: $blue;
     border-bottom: 3px solid $blue;
+    text-transform: uppercase;
     &:hover {
       color: darken($blue, 10%);
       border-bottom: 3px solid darken($blue, 10%);
