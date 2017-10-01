@@ -14,6 +14,7 @@
 
 .c-product__image {
   grid-area: cover;
+  align-self: start;
   justify-self: center;
   width: 35%;
   line-height: 0; // removes white border from figure
