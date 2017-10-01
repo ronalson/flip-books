@@ -1,31 +1,17 @@
 <template>
   <main class="l-products-list">
-    <section v-for="product in products" class="c-product">
-      <figure class="c-product__image">
-        <img v-if="product.imageUrl" v-bind:src="product.imageUrl" alt="Product image">
-        <img v-else src="../../assets/product_placeholder.svg" alt="Product image">  
-      </figure>
-      <h2 class="c-product__title">{{product.title}}</h2>
-      <p class="c-product__author">{{product.author}}</p>
-      <p class="c-product__price">R$ {{product.price}}</p>
-      <a class="c-product__details-toggle" 
-         @click="toggleDetails"
-         ><span v-if="!showDetails">Abrir detalhes</span>
-          <span v-else>Fechar</span></a>
-      <div v-show="showDetails" class="c-product__details">
-        <h4>Detalhes</h4>
-        <p>{{product.description}}</p>
-      </div>
-      <button class="c-product__btn--buy">Comprar</button>
-    </section>
+    <app-product v-for="product in products" 
+                 :product="product"
+                 :key="product.id"></app-product>
   </main>
 </template>
 
 <script>
+import Product from './Product';
+
 export default {
   data() {
     return {
-      showDetails: false,
       products: [
         {
           id: 0,
@@ -46,10 +32,8 @@ export default {
       ],
     };
   },
-  methods: {
-    toggleDetails() {
-      this.showDetails = !this.showDetails;
-    },
+  components: {
+    AppProduct: Product,
   },
 };
 </script>
