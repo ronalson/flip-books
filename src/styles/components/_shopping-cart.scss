@@ -53,17 +53,16 @@
   grid-area: quantity;
   input,
   button {
-    font-size: 1.8em;
-    height: 46px;
+    font-size: 1.4em;
+    padding: 0.6em 0.4em;
   }
 
   input {
-    width: 52px;
+    width: 2.2em;
   }
 
   button {
     border: 0;
-    width: 32px;
     background: $green;
     color: $main-light;
   }
