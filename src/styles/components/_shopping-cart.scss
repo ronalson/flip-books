@@ -81,7 +81,7 @@
 .c-cart__item__btn--remove {
   grid-area: remove;
   @extend .o-btn-simple--danger;
-  font-size: 1.2em;
+  font-size: 1em;
   align-self: center;
   justify-self: center;
   margin: 5px 0 25px 0;
@@ -113,4 +113,43 @@
   align-self: end;
   @extend .o-btn-action--buy;
   margin-bottom: 5px;
+}
+
+@media (min-width: 530px) {
+  .c-cart__item {
+    grid-template-columns: 1fr 3fr 2fr 1fr;
+    grid-auto-rows: min-content;
+    grid-template-areas:
+    "cover info quantity remove"
+    "cover info subtotal remove";
+    align-items: center;
+    padding-bottom: 2em;
+  }
+
+  .c-cart__item__quantity,
+  .c-cart__item__subtotal {
+    justify-self: center;
+  }
+
+  .c-cart__btn--keep-shopping,
+  .c-cart__total,
+  .c-cart__btn--buy {
+    justify-self: end;
+  }
+  .c-cart__btn--buy {
+    width: 50%;
+  }
+}
+
+@media (min-width: 890px) {
+  .c-cart__item {
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    grid-auto-rows: min-content;
+    grid-template-areas:
+    "cover info quantity subtotal remove";
+    align-items: center;
+  } 
+   .c-cart__item__image {
+    width: 60%;
+  }
 }
