@@ -4,7 +4,7 @@
       <div class="c-cart__item">
         <figure class="c-cart__item__image">
           <img v-if="product.imageUrl" v-bind:src="product.imageUrl" alt="Product image">
-          <img v-else src="../assets/product_placeholder.svg" alt="Product image">
+          <img v-else src="../../assets/product_placeholder.svg" alt="Product image">
         </figure>
         <div class="c-cart__item__info">
           <h2>{{product.title}}</h2>
@@ -35,7 +35,6 @@
 
 <script>
 export default {
-  name: 'shopping-cart',
   data() {
     return {
       products: [

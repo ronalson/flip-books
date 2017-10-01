@@ -3,7 +3,7 @@
     <section v-for="product in products" class="c-product">
       <figure class="c-product__image">
         <img v-if="product.imageUrl" v-bind:src="product.imageUrl" alt="Product image">
-        <img v-else src="../assets/product_placeholder.svg" alt="Product image">  
+        <img v-else src="../../assets/product_placeholder.svg" alt="Product image">  
       </figure>
       <h2 class="c-product__title">{{product.title}}</h2>
       <p class="c-product__author">{{product.author}}</p>
@@ -23,7 +23,6 @@
 
 <script>
 export default {
-  name: 'products-catalog',
   data() {
     return {
       showDetails: false,
