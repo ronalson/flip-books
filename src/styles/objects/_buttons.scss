@@ -1,0 +1,68 @@
+// SIMPLE BUTTON UNDERLINED LINK LAYOUT
+.o-btn-simple {
+  font-weight: 400;
+  font-size: 90%;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: lighten($dark-grey, 30%);
+  border-bottom: 3px solid lighten($dark-grey, 30%);
+  cursor: pointer;
+
+  &:hover {
+    color: $dark-grey;
+    font-weight: 500;
+    border-bottom: 3px solid $dark-grey;
+  }
+
+  &--danger {
+    color: $red;
+    border-bottom: 3px solid $red;
+    text-transform: uppercase;
+    &:hover {
+      color: darken($red, 10%);
+      border-bottom: 3px solid darken($red, 10%);
+    }
+  }
+
+  &--primary {
+    color: $blue;
+    border-bottom: 3px solid $blue;
+    text-transform: uppercase;
+    &:hover {
+      color: darken($blue, 10%);
+      border-bottom: 3px solid darken($blue, 10%);
+    }
+  }
+}
+
+// MAIN BUTTON LAYOUT
+.o-btn-action {
+  font-size: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.5em 0;
+  width: 100%;
+  color: $light-grey;
+  border: none;
+  box-shadow: 5px 5px 0 0 $dark-grey;
+  transition: all 0.15s;
+
+  &:hover {
+    box-shadow: 5px 5px 5px 0 transparentize($dark-grey, 0.2);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 3px 3px 5px 0 transparentize($dark-grey, 0.2);
+  }
+}
+
+.o-btn-action--buy {
+  @extend .o-btn-action;
+  background-color: $green;
+  box-shadow: 5px 5px 0 0 $green-dark;
+
+  &:hover {
+    background-color: darken($green, 10%);
+  }
+}

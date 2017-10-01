@@ -9,11 +9,12 @@
     "price toggle"
     "details details"
     "button button";
-    grid-gap: 15px;
+  grid-gap: 15px;
 }
 
 .c-product__image {
   grid-area: cover;
+  align-self: start;
   justify-self: center;
   width: 35%;
   line-height: 0; // removes white border from figure
@@ -42,26 +43,8 @@
   grid-area: toggle;
   justify-self: center;
   align-self: center;
-  font-weight: 400;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: lighten($dark-grey, 30%);
-  border-bottom: 3px solid lighten($dark-grey, 30%);
-  cursor: pointer;
-
-  &:hover {
-    color: $dark-grey;
-    font-weight: 500;
-    border-bottom: 3px solid $dark-grey;
-  }
+  @extend .o-btn-simple;
 }
-
-.c-product__details-toggle.active {
-    color: $green;
-    font-size: 1.3em;
-    border-bottom: 5px solid $green;
-  }
 
 .c-product__details {
   grid-area: details;

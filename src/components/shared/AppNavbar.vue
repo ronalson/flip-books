@@ -1,12 +1,16 @@
 <template>
   <header class="c-navbar">
-    <div class="c-navbar__logo">
+    <router-link class="c-navbar__logo" 
+                 to="/"
+                 tag="div">
       <p>FLIP</p><span>BOOKS</span>
-    </div>
-    <div class="c-navbar__cart-counter">
+    </router-link>
+    <router-link class="c-navbar__cart-counter"
+                 to="cart"
+                 tag="div">
       <p>0</p>
       <span><img src="../../assets/shopping-cart-icon.svg" alt="Shopping Cart"></span>
-    </div>
+    </router-link>
   </header>
 </template>
 
