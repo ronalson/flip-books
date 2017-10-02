@@ -5,10 +5,10 @@
           v-for="item in cartItems"
           :item="item"
           :key="item.id"></app-cart-item>
-      <div v-if="!cartItems.length" class="cart-empty">
-        No products :(
+    <div v-if="!cartItems.length" class="c-cart--empty">
+        <h3>Você ainda não adicionou produtos ao carrinho.<span>:(</span></h3>
       </div>
-    <section  class="c-cart">
+    <section class="c-cart">
       <p class="c-cart__btn--keep-shopping">Continuar Comprando</p>
       <div class="c-cart__total">
         <h4>Total</h4>
