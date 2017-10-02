@@ -14,7 +14,7 @@
       <button @click="subtractFromCart(item.id)"
               :disabled="quantity <= 0">-</button>
       <input type="number" :value="item.quantity">
-      <button @click="addToQuantity(item.id)">+</button>
+      <button @click="addToCart(item.id)">+</button>
     </div>
     <div class="c-cart__item__subtotal">
       <h4>Subtotal</h4>
@@ -41,13 +41,5 @@ export default {
     'removeFromCart',
     'subtractFromCart',
   ]),
-  // methods: {
-  //   addToQuantity() {
-  //     const order = {
-  //       productId: this.item.id,
-  //     };
-  //     this.$store.dispatch('addToCart', order);
-  //   },
-  // },
 };
 </script>

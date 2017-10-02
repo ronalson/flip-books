@@ -18,7 +18,7 @@ const mutations = {
   'REMOVE_FROM_CART': function (state, productId) {
     state.products = state.products.filter(p => p.id !== productId);
   },
-  'SUBTRACT_FROM_CART': function (state, { productId }) {
+  'SUBTRACT_FROM_CART': function (state, productId ) {
     const record = state.products.find(p => p.id === productId);
     if (record && record.quantity === 1) {
       state.products = state.products.filter(p => p.id !== productId);
