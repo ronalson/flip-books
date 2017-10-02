@@ -15,7 +15,7 @@
       <h4>Detalhes</h4>
       <p>{{product.description}}</p>
     </div>
-    <button class="c-product__btn--buy">Comprar</button>
+    <button class="c-product__btn--buy" @click="buyProduct">Comprar</button>
   </section>
 </template>
 
@@ -30,6 +30,16 @@ export default {
   methods: {
     toggleDetails() {
       this.showDetails = !this.showDetails;
+    },
+    buyProduct() {
+      const order = {
+        productId: this.product.id,
+        productTitle: this.product.title,
+        productAuthor: this.product.author,
+        productPrice: this.product.price,
+      };
+      // eslint-disable-next-line
+      console.log(order);
     },
   },
 };
