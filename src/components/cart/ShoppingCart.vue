@@ -9,7 +9,7 @@
         <h3>Você ainda não adicionou produtos ao carrinho.<span>:(</span></h3>
     </div>
     <section class="c-cart">
-      <p class="c-cart__btn--keep-shopping">Continuar Comprando</p>
+      <router-link to="/" class="c-cart__btn--keep-shopping">Continuar Comprando</router-link>
       <div class="c-cart__total">
         <h4>Total</h4>
         <p>R$ {{totalOrder}}</p>
