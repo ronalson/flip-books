@@ -15,9 +15,6 @@ const actions = {
   initProducts: ({ commit }) => {
     commit('SET_PRODUCTS', products);
   },
-  buyProducts: ({ commit }, order) => {
-    commit(); // this will be commited to store/module/cart
-  },
 };
 
 const getters = {
