@@ -1,11 +1,15 @@
 <template>
   <main class="l-shopping-cart">
-      <app-cart-item 
-          v-for="item in order"
+    <app-cart-item 
+          v-if="cartItems"
+          v-for="item in cartItems"
           :item="item"
           :key="item.id"></app-cart-item>
-    <section  class="c-cart">
-      <p class="c-cart__btn--keep-shopping">Continuar Comprando</p>
+    <div v-if="!cartItems.length" class="c-cart--empty">
+        <h3>Você ainda não adicionou produtos ao carrinho.<span>:(</span></h3>
+    </div>
+    <section class="c-cart">
+      <router-link to="/" class="c-cart__btn--keep-shopping">Continuar Comprando</router-link>
       <div class="c-cart__total">
         <h4>Total</h4>
         <p>R$ {{totalOrder}}</p>
@@ -16,34 +20,24 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import CartItem from './CartItem';
 
 export default {
-  data() {
-    return {
-      order: [
-        {
-          id: 0,
-          title: 'Harry Potter and the Philosopher\'s Stone',
-          author: 'J. K. Rowling',
-          price: 21.10,
-          imageUrl: 'https://prodimage.images-bn.com/pimages/9780545582889_p0_v2_s550x406.jpg',
-        },
-        {
-          id: 1,
-          title: 'The Hobbit',
-          author: 'J. R. R. Tolkien',
-          price: 23.90,
-          imageUrl: 'https://images.gr-assets.com/books/1372847500l/5907.jpg',
-        },
-      ],
-    };
-  },
   computed: {
+    ...mapGetters({
+      cartItems: 'getCartItems',
+    }),
     totalOrder() {
-      return this.order.reduce((total, item) => total + item.price, 0).toFixed(2);
+      return this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)
+                           .toFixed(2);
     },
   },
+  methods: mapActions([
+    'addToCart',
+    'removeFromCart',
+    'subtractFromCart',
+  ]),
   components: {
     AppCartItem: CartItem,
   },

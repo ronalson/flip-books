@@ -11,32 +11,35 @@
 
     <div class="c-cart__item__quantity">
       <h4>Quantidade</h4>
-      <button @click="quantity--"
+      <button @click="subtractFromCart(item.id)"
               :disabled="quantity <= 0">-</button>
-      <input type="number" v-model="quantity">
-      <button @click="quantity++">+</button>
+      <input type="number" :value="item.quantity">
+      <button @click="addToCart(item.id)">+</button>
     </div>
     <div class="c-cart__item__subtotal">
       <h4>Subtotal</h4>
       <p>R$ {{subtotal}}</p>
     </div>
-    <p class="c-cart__item__btn--remove">Remover item</p>
+    <p class="c-cart__item__btn--remove"
+       @click="removeFromCart(item.id)">Remover item</p>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   props: ['item'],
-  data() {
-    return {
-      quantity: 1,
-    };
-  },
   computed: {
     subtotal() {
-      const total = this.item.price * this.quantity;
+      const total = this.item.price * this.item.quantity;
       return total.toFixed(2);
     },
   },
+  methods: mapActions([
+    'addToCart',
+    'removeFromCart',
+    'subtractFromCart',
+  ]),
 };
 </script>

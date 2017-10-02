@@ -32,14 +32,7 @@ export default {
       this.showDetails = !this.showDetails;
     },
     buyProduct() {
-      const order = {
-        productId: this.product.id,
-        productTitle: this.product.title,
-        productAuthor: this.product.author,
-        productPrice: this.product.price,
-      };
-      // eslint-disable-next-line
-      console.log(order);
+      this.$store.dispatch('addToCart', this.product.id);
     },
   },
 };
