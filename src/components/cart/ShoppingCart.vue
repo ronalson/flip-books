@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     totalOrder() {
-      return this.order.reduce((total, item) => total + item.price, 0);
+      return this.order.reduce((total, item) => total + item.price, 0).toFixed(2);
     },
   },
   components: {
