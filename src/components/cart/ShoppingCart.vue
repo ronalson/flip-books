@@ -1,13 +1,13 @@
 <template>
   <main class="l-shopping-cart">
-      <app-cart-item 
+    <app-cart-item 
           v-if="cartItems"
           v-for="item in cartItems"
           :item="item"
           :key="item.id"></app-cart-item>
     <div v-if="!cartItems.length" class="c-cart--empty">
         <h3>Você ainda não adicionou produtos ao carrinho.<span>:(</span></h3>
-      </div>
+    </div>
     <section class="c-cart">
       <p class="c-cart__btn--keep-shopping">Continuar Comprando</p>
       <div class="c-cart__total">
@@ -28,9 +28,10 @@ export default {
     ...mapGetters({
       cartItems: 'getCartItems',
     }),
-    // totalOrder() {
-    //   return this.order.reduce((total, item) => total + item.price, 0).toFixed(2);
-    // },
+    totalOrder() {
+      return this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)
+                           .toFixed(2);
+    },
   },
   methods: mapActions([
     'addToCart',
