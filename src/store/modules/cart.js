@@ -4,25 +4,21 @@ const state = {
 };
 
 const mutations = {
-  'ADD_TO_CART': function (state, product) {
-    const record = state.products.find(p => p.id === product.id);
-    if (!record) {
+  'ADD_TO_CART': function (state, productId) {
+    const record = state.products.find(p => p.id === productId);
+    if (record) {
+      record.quantity++;
+    } else {
       state.products.push({
-        id: product.id,
-        title: product.title,
-        author: product.author,
-        imageUrl: product.imageUrl,
-        price: product.price,
+        id: productId,
         quantity: 1,
       });
-    } else {
-      record.quantity++;
     }
   },
   'REMOVE_FROM_CART': function (state, productId) {
     state.products = state.products.filter(p => p.id !== productId);
   },
-  'SUBTRACT_FROM_CART': function (state, productId) {
+  'SUBTRACT_FROM_CART': function (state, { productId }) {
     const record = state.products.find(p => p.id === productId);
     if (record && record.quantity === 1) {
       state.products = state.products.filter(p => p.id !== productId);
@@ -33,12 +29,8 @@ const mutations = {
 };
 
 const actions = {
-  addToCart: ({ commit, state }, product) => {
-    const record = state.products.find(p => p.id === product.id);
-
-    if (!record || record.quantity < 10) {
-      commit('ADD_TO_CART', product);
-    }
+  addToCart: ({ commit, state }, productId) => {
+    commit('ADD_TO_CART', productId);
   },
   removeFromCart: ({ commit }, productId) => {
     commit('REMOVE_FROM_CART', productId);
@@ -49,7 +41,19 @@ const actions = {
 };
 
 const getters = {
-  getCartItems: state => state.products,
+  getCartItems(state, getters) {
+    return state.products.map(products => {
+      const record = getters.products.find(element => element.id == products.id);
+      return {
+        id: products.id,
+        quantity: products.quantity,
+        price: record.price,
+        title: record.title,
+        author: record.author,
+        imageUrl: record.imageUrl,
+      }
+    });
+  }
 };
 
 export default {
