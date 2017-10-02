@@ -11,7 +11,8 @@
 
     <div class="c-cart__item__quantity">
       <h4>Quantidade</h4>
-      <button @click="quantity--">-</button>
+      <button @click="quantity--"
+              :disabled="quantity <= 0">-</button>
       <input type="number" v-model="quantity">
       <button @click="quantity++">+</button>
     </div>
@@ -33,7 +34,8 @@ export default {
   },
   computed: {
     subtotal() {
-      return this.item.price * this.quantity;
+      const total = this.item.price * this.quantity;
+      return total.toFixed(2);
     },
   },
 };
