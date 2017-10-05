@@ -11,8 +11,7 @@
 
     <div class="c-cart__item__quantity">
       <h4>Quantidade</h4>
-      <button @click="subtractFromCart(item.id)"
-              :disabled="quantity <= 0">-</button>
+      <button @click="subtractFromCart(item.id)">-</button>
       <input type="number" :value="item.quantity">
       <button @click="addToCart(item.id)">+</button>
     </div>
