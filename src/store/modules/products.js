@@ -1,5 +1,5 @@
 /* eslint-disable */
-import products from '../../data/products';
+import productsList from '../../data/products';
 
 const state = {
   products: [],
@@ -13,7 +13,7 @@ const mutations = {
 
 const actions = {
   initProducts: ({ commit }) => {
-    commit('SET_PRODUCTS', products);
+    commit('SET_PRODUCTS', productsList);
   },
 };
 
